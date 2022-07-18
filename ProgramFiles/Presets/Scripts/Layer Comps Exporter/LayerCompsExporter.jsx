@@ -247,7 +247,7 @@ function main() {
                 if (fileNameBody.length > 0 ) {  fileNameBody +=  "-" };
                 if (exportInfo.prefixIndex) 
                 { 
-                    fileNameBody += zeroSuppress(compsIndex, 4) +"_" ;  // VILBUR DISBALE nubered suffix
+                    fileNameBody += zeroSuppress(compsIndex, 4) +"_" ;  // VILBUR DISABLE suffix counter
                     fileNameBody += compRef.name;
                 } else      // not using prefix, but we'll still make sure each file name is unique
                 {
@@ -695,7 +695,8 @@ function settingDialog(exportInfo)
 	}
     
     // get setting from dialog
-    exportInfo.destination = dlgMain.etDestination.text;
+    //exportInfo.destination = dlgMain.etDestination.text; // VILBUR
+    exportInfo.destination = activeDocument.path.fsName; // VILBUR - export to current file direcotry
     exportInfo.fileNamePrefix = dlgMain.etFileNamePrefix.text;
     exportInfo.selectionOnly = dlgMain.cbSelection.value;
     exportInfo.fileType = dlgMain.ddFileType.selection.index;
@@ -869,6 +870,8 @@ function saveFile( docRef, fileNameBody, exportInfo)
 			case targaIndex:
                 fileExtension = "tga";
 				docRef.bitsPerChannel = BitsPerChannelType.EIGHT;
+				//var saveFile = new File(exportInfo.destination + "/" + fileNameBody + ".tga");
+				//alert( activeDocument.path );
 				var saveFile = new File(exportInfo.destination + "/" + fileNameBody + ".tga");
 				targaSaveOptions = new TargaSaveOptions();
 				targaSaveOptions.resolution = exportInfo.targaDepth;
