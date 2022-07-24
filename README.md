@@ -2,5 +2,5 @@
 
 ## Scripts  
 
-__[Layer Comps Exporter](ProgramFiles/Presets/Scripts/Layer Comps Exporter/readme.md)__  
+[Layer Comps Exporter](ProgramFiles/Presets/Scripts/Layer%20Comps%20Exporter/)  
   
