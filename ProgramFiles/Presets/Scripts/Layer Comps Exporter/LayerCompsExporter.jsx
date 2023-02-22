@@ -8,7 +8,7 @@
 
 
 /**
-  *		 Vilbur modifications 
+  *		 VILBUR`s modifications 
   *	
   *	1. Export selected only if any layer comp is selected
   *	
@@ -232,7 +232,7 @@ function main() {
                 var duppedDocument = app.activeDocument.duplicate();
 				
 				try{
-				//Code you want to execute
+					// VILBUR: Run action with same name as exported Layer comp
 					app.doAction(compRef.name,"Layer Comps Exporter.ATN")
 				
 				}catch(e){
@@ -243,11 +243,13 @@ function main() {
 				
 				}
 				
-                var fileNameBody = exportInfo.fileNamePrefix ; 
+                var fileNameBody = exportInfo.fileNamePrefix ;
+				//alert(fileNameBody)
                 if (fileNameBody.length > 0 ) {  fileNameBody +=  "-" };
+				
                 if (exportInfo.prefixIndex) 
                 { 
-                    fileNameBody += zeroSuppress(compsIndex, 4) +"_" ;  // VILBUR DISABLE suffix counter
+                    //fileNameBody += zeroSuppress(compsIndex, 4) +"_" ;  // VILBUR DISABLE suffix counter
                     fileNameBody += compRef.name;
                 } else      // not using prefix, but we'll still make sure each file name is unique
                 {
